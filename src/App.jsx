@@ -1,4 +1,3 @@
-//import React, {useState} from 'react'
 import { useState } from 'react'
 import './App.css'
 import React from 'react'
@@ -18,16 +17,15 @@ const searchLocation = (event) => {
     })
     setLocation('')
   }
-  
 }
   return (
     <div className="app">
       <div className='search'>
         <input 
         value={location}
-        onChange={event => setLocation(event.target.value)}
+        onChange={event => setLocation(event.target.value)}//listening for a change
         placeholder="Enter Location"
-        onKeyDown={searchLocation}
+        onKeyDown={searchLocation}//onKeyDown is listening for our enter
         type="text"/>
       </div>
       <div className='container'>
@@ -36,33 +34,18 @@ const searchLocation = (event) => {
             <p>{data.name}</p>
           </div>
           <div className='temp'>
-            {data.main ? <h1>{data.main.temp.toFixed()} °F</h1> : null}
-          
+            {/* if-else with conditional operator. Had to use this solution in order to access the data from the API.
+            Could not use data.main.temp, got an error "Cannot read properties of undefined" */}
+            {data.main ? <h1>{data.main.temp.toFixed()} °F</h1> : null} 
           </div>
           <div className='description'>
             {data.weather ? <p>{data.weather[0].main}</p> : null}
-            
-          </div>
-        </div>
-        <div className='bottom'>
-          <div className='feels'>
-            {data.main ? <p className='bold'>{data.main.feels_like.toFixed()} °F</p> : null}
-            <p>Feels Like</p>
-          </div>
-          <div className='humidity'>
-            {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
-            <p>Humidity</p>
-          </div>
-          <div className='wind'>
-            {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH</p> : null}
-            <p>Wind Speed</p>
           </div>
         </div>
       </div>
     </div>
   )
 }
-
 export default App
 
 //5fa5eb8699748761236860568f29ab0f

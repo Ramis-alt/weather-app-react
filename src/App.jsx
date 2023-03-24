@@ -6,7 +6,7 @@ import axios from 'axios'
 function App() {
   const [data, setData] = useState({})
   const [location, setLocation] = useState('')
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&APPID=5fa5eb8699748761236860568f29ab0f`
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&APPID={youApiKeyGoesHere}`
 
 const searchLocation = (event) => {
   //since there is no button, we're using an event listener for an enter key
@@ -48,8 +48,3 @@ const searchLocation = (event) => {
 }
 export default App
 
-//5fa5eb8699748761236860568f29ab0f
-//e2f367ebce58cb7c829b25890bc284d7
-//https://api.openweathermap.org/data/2.5/weather?q=San%20Francisco,us&APPID=5fa5eb8699748761236860568f29ab0f
-//https://api.openweathermap.org/data/2.5/weather?q=Dallas&APPID=5fa5eb8699748761236860568f29ab0f
-// http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
